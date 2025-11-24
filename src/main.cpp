@@ -18,6 +18,7 @@ void setup()
 
   if (xButtonQueue != NULL) {
     // Create the tasks
+    // Button has lower priority (1), Action has higher priority (2)
     xTaskCreate(TaskButtonMonitor, "Button Monitor", 2048, NULL, 1, NULL);
     xTaskCreate(TaskAction, "Action Task", 2048, NULL, 2, NULL);
   } else {
